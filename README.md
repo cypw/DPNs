@@ -157,7 +157,7 @@ ImageNet-5k Raw Images:
 - Please download the [ImageNet10K](http://www.image-net.org/download-images) and then extract the ImageNet-5k by the list below.
 
 ImageNet-5k Trainig/Validation List:
-- It contains about 5k leaf categories from ImageNet10K. There is not category overlapping between our provided ImageNet-5k and the official ImageNet-1k.
+- It contains about 5k leaf categories from ImageNet10K. There is no category overlapping between our provided ImageNet-5k and the official ImageNet-1k.
 - Download link: [GoogleDrive](https://goo.gl/kNZC4j)
 
 
