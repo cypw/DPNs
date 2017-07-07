@@ -1,7 +1,7 @@
 # Dual Path Networks
 This repository contains the code and trained models of:
 
-Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng. "Dual Path Networks" ([arxiv](https://arxiv.org)).
+Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng. "Dual Path Networks" ([arxiv](https://arxiv.org/abs/1707.01629)).
 
 
 ![example](fig/overview.png)
@@ -165,9 +165,9 @@ ImageNet-5k Trainig/Validation List:
 If you use DPN in your research, please cite the paper:
 ```
 @article{Chen2017,
-  title={Dual Path Network},
+  title={Dual Path Networks},
   author={Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng},
-  journal={arXiv preprint arXiv:----.-----},
+  journal={arXiv preprint arXiv:1707.01629},
   year={2017}
 }
 ```
