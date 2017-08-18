@@ -66,6 +66,28 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
     <td class="tg-baqh">Top 5</td>
   </tr>
   <tr>
+    <td class="tg-baqh">DPN-68</td>
+    <td class="tg-baqh">49 MB</td>
+    <td class="tg-baqh">2.5</td>
+    <td class="tg-baqh">23.57</td>
+    <td class="tg-baqh">6.93</td>
+    <td class="tg-baqh">22.15</td>
+    <td class="tg-baqh">5.90</td>
+    <td class="tg-baqh">21.51</td>
+    <td class="tg-baqh">5.52</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">DPN-68*</td>
+    <td class="tg-baqh">49 MB</td>
+    <td class="tg-baqh">2.5</td>
+    <td class="tg-baqh">22.45</td>
+    <td class="tg-baqh">6.09</td>
+    <td class="tg-baqh">20.92</td>
+    <td class="tg-baqh">5.26</td>
+    <td class="tg-baqh">20.62</td>
+    <td class="tg-baqh">5.07</td>
+  </tr>
+  <tr>
     <td class="tg-baqh">DPN-92</td>
     <td class="tg-baqh">145 MB</td>
     <td class="tg-baqh">6.5</td>
@@ -112,7 +134,55 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
 </table>
 </dl>
 
->\*DPN-107 is trained with addtional training data: Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
+>\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
+
+
+### ImageNet-5k
+
+**Single Model, Single Crop Validation Accuracy:**
+
+<dl>
+<table class="tg" style="undefined;table-layout: fixed; width: 739px">
+<colgroup>
+<col style="width: 103px">
+<col style="width: 92px">
+<col style="width: 87px">
+<col style="width: 68px">
+<col style="width: 72px">
+<col style="width: 62px">
+<col style="width: 72px">
+<col style="width: 87px">
+<col style="width: 96px">
+</colgroup>
+  <tr>
+    <th class="tg-baqh" rowspan="2">Model</th>
+    <th class="tg-baqh" rowspan="2">Size</th>
+    <th class="tg-baqh" rowspan="2">GFLOPs</th>
+    <th class="tg-baqh" colspan="2">224x224</th>
+    <th class="tg-baqh" colspan="2">320x320</th>
+    <th class="tg-baqh" colspan="2">320x320<br>( with mean-max pooling )</th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">DPN-68</td>
+    <td class="tg-baqh">49 MB</td>
+    <td class="tg-baqh">2.5</td>
+    <td class="tg-baqh">61.27</td>
+    <td class="tg-baqh">85.46</td>
+    <td class="tg-baqh">61.54</td>
+    <td class="tg-baqh">85.99</td>
+    <td class="tg-baqh">62.35</td>
+    <td class="tg-baqh">86.20</td>
+  </tr>
+</table>
+</dl>
 
 
 ### Efficiency (Training)
@@ -123,6 +193,7 @@ The training speed is tested based on [MXNet \@92053bd](https://github.com/cypw/
 
 Model   | CUDA<br/>/cuDNN | #Node | GPU Card<br/>(per node) | Batch Size<br/>(per GPU) | `kvstore` | GPU Mem<br/>(per GPU) | Training Speed*<br/>(per node)
 :-------|:------------:|:----:|:---------------------:|:----------------------:|:---------:|:---------:|:-----------:
+DPN-68  |  8.0 / 5.1   |  10  |    4 x K80 (Tesla)    |           64           |`dist_sync`|  9337 MiB | 284 img/sec
 DPN-92  |  8.0 / 5.1   |  10  |    4 x K80 (Tesla)    |           32           |`dist_sync`|  8017 MiB | 133 img/sec
 DPN-98  |  8.0 / 5.1   |  10  |    4 x K80 (Tesla)    |           32           |`dist_sync`| 11128 MiB |  85 img/sec
 DPN-131 |  8.0 / 5.1   |  10  |    4 x K80 (Tesla)    |           24           |`dist_sync`| 11448 MiB |  60 img/sec
@@ -136,12 +207,15 @@ DPN-107 |  8.0 / 5.1   |  10  |    4 x K80 (Tesla)    |           24           |
 
 Model    |  Size  |  Dataset  |             MXNet Model
 :--------|:------:|:---------:|:-----------------------------------:
+DPN-68   |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/5iCuZ8)
+DPN-68\* |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/GZetYA)
+DPN-68   |  49 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/FEbhPS)
 DPN-92   | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/U4ALbg)
 DPN-98   | 236 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/kjVsLG)
 DPN-131  | 304 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/VECv1H)
 DPN-107\*| 333 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/YtokAb)
 
->\*DPN-107 is trained with addtional training data: Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
+>\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
 
 
 ## Other Resources
