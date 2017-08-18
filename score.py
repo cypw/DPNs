@@ -8,7 +8,7 @@ import importlib
 sys.path.insert(0, "./settings")
 
 def score(model, data_val, metrics, gpus, batch_size, rgb_mean, network,
-          scale=0.0167, image_shape='3,320,320', data_nthreads=4, epoch=0):
+          image_shape, data_nthreads, epoch, num_classes, scale=0.0167):
     # create data iterator
     rgb_mean = [float(i) for i in rgb_mean.split(',')]
     data_shape = tuple([int(i) for i in image_shape.split(',')])
@@ -48,11 +48,11 @@ def score(model, data_val, metrics, gpus, batch_size, rgb_mean, network,
     
     # get before pooling
     sym  = importlib.import_module('symbol_' + network).get_before_pool()
-    fc6_name = 'fc6-1k' if prefix.endswith('-extra') else 'fc6'
+    fc6_name = 'fc6-1k' if prefix.endswith('-extra') or prefix.endswith('extra-1k') else 'fc6'
     
     # set mean-max pooling
     sym  = mx.symbol.Pooling(data=sym, pool_type='avg', kernel=(7,7), stride=(1,1), pad=(0,0), name='avg_pool')
-    sym  = mx.symbol.Convolution(data=sym, num_filter=1000, kernel=(1,1), no_bias=False, name=fc6_name)
+    sym  = mx.symbol.Convolution(data=sym, num_filter=num_classes, kernel=(1,1), no_bias=False, name=fc6_name)
     arg_params[fc6_name+'_weight'] = arg_params[fc6_name+'_weight'].reshape(arg_params[fc6_name+'_weight'].shape + (1,1))
     arg_params[fc6_name+'_bias']   = arg_params[fc6_name+'_bias'].reshape(arg_params[fc6_name+'_bias'].shape)
     sym1 = mx.symbol.Flatten(data=mx.symbol.Pooling(data=sym, pool_type='avg', kernel=mean_max_pooling_size, stride=(1,1), pad=(0,0), name='out_pool1'))
@@ -89,6 +89,7 @@ if __name__ == '__main__':
     parser.add_argument('--model',         type=str, required=True,)
     parser.add_argument('--gpus',          type=str, default='0,1')
     parser.add_argument('--batch-size',    type=int, default=200)
+    parser.add_argument('--num-classes',   type=int, default=1000)
     parser.add_argument('--epoch',         type=int, default=0)
     parser.add_argument('--rgb-mean',      type=str, default='124,117,104')
     parser.add_argument('--data-val',      type=str, default='/tmp/val.rec')
