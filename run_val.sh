@@ -14,6 +14,7 @@ python score.py --epoch 0 --model ./models/dpn131 --network dpn-131 2>&1 | tee -
 
 # networks trained from scratch (with random initialization) on the customized imagenet-5k dataset
 python score.py --epoch 0 --model ./models/dpn68-5k --network dpn-68_b --data-val '/tmp/val-5k.rec' --num-classes 4786 2>&1 | tee -a  ./val.log
+python score.py --epoch 0 --model ./models/dpn92-5k --network dpn-92   --data-val '/tmp/val-5k.rec' --num-classes 4786 2>&1 | tee -a  ./val.log
 
 # networks pre-trained on imagenet-5k from scratch (with random initialization)
 # and then fine-tuned on the official imagenet-1k dataset

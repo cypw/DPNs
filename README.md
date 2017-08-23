@@ -134,7 +134,7 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
 </table>
 </dl>
 
->\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
+>\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k. (DPN-107 is not well trained.)
 
 
 ### ImageNet-5k
@@ -172,7 +172,7 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
   </tr>
   <tr>
     <td class="tg-baqh">DPN-68</td>
-    <td class="tg-baqh">49 MB</td>
+    <td class="tg-baqh">61 MB</td>
     <td class="tg-baqh">2.5</td>
     <td class="tg-baqh">61.27</td>
     <td class="tg-baqh">85.46</td>
@@ -181,9 +181,21 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
     <td class="tg-baqh">62.35</td>
     <td class="tg-baqh">86.20</td>
   </tr>
+  <tr>
+    <td class="tg-baqh">DPN-92</td>
+    <td class="tg-baqh">184 MB</td>
+    <td class="tg-baqh">6.5</td>
+    <td class="tg-baqh">67.31</td>
+    <td class="tg-baqh">89.49</td>
+    <td class="tg-baqh">66.84</td>
+    <td class="tg-baqh">89.38</td>
+    <td class="tg-baqh">67.42</td>
+    <td class="tg-baqh">89.76</td>
+  </tr>
 </table>
 </dl>
 
+>Note: The higher model complexity comes from the final classifier. Models trained on ImageNet-5k learn much richer feature representation than models trained ImageNet-1k.
 
 ### Efficiency (Training)
 
@@ -209,8 +221,9 @@ Model    |  Size  |  Dataset  |             MXNet Model
 :--------|:------:|:---------:|:-----------------------------------:
 DPN-68   |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/5iCuZ8)
 DPN-68\* |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/GZetYA)
-DPN-68   |  49 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/FEbhPS)
+DPN-68   |  61 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/FEbhPS)
 DPN-92   | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/U4ALbg)
+DPN-92   | 184 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/H9shRv)
 DPN-98   | 236 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/kjVsLG)
 DPN-131  | 304 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/VECv1H)
 DPN-107\*| 333 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/YtokAb)
