@@ -19,4 +19,5 @@ python score.py --epoch 0 --model ./models/dpn92-5k --network dpn-92   --data-va
 # networks pre-trained on imagenet-5k from scratch (with random initialization)
 # and then fine-tuned on the official imagenet-1k dataset
 python score.py --epoch 0 --model ./models/dpn68-extra  --network dpn-68_b 2>&1 | tee -a  ./val.log
+python score.py --epoch 0 --model ./models/dpn92-extra  --network dpn-92   2>&1 | tee -a  ./val.log
 python score.py --epoch 0 --model ./models/dpn107-extra --network dpn-107  2>&1 | tee -a  ./val.log

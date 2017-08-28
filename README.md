@@ -77,17 +77,6 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
     <td class="tg-baqh">5.52</td>
   </tr>
   <tr>
-    <td class="tg-baqh">DPN-68*</td>
-    <td class="tg-baqh">49 MB</td>
-    <td class="tg-baqh">2.5</td>
-    <td class="tg-baqh">22.45</td>
-    <td class="tg-baqh">6.09</td>
-    <td class="tg-baqh">20.92</td>
-    <td class="tg-baqh">5.26</td>
-    <td class="tg-baqh">20.62</td>
-    <td class="tg-baqh">5.07</td>
-  </tr>
-  <tr>
     <td class="tg-baqh">DPN-92</td>
     <td class="tg-baqh">145 MB</td>
     <td class="tg-baqh">6.5</td>
@@ -120,8 +109,66 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
     <td class="tg-baqh">18.55</td>
     <td class="tg-baqh">4.16</td>
   </tr>
+</table>
+</dl>
+
+### ImageNet-1k (Pretrained on ImageNet-5k)
+
+**Single Model, Single Crop Validation Error:**
+
+<dl>
+<table class="tg" style="undefined;table-layout: fixed; width: 739px">
+<colgroup>
+<col style="width: 103px">
+<col style="width: 92px">
+<col style="width: 87px">
+<col style="width: 68px">
+<col style="width: 72px">
+<col style="width: 62px">
+<col style="width: 72px">
+<col style="width: 87px">
+<col style="width: 96px">
+</colgroup>
   <tr>
-    <td class="tg-baqh">DPN-107*</td>
+    <th class="tg-baqh" rowspan="2">Model</th>
+    <th class="tg-baqh" rowspan="2">Size</th>
+    <th class="tg-baqh" rowspan="2">GFLOPs</th>
+    <th class="tg-baqh" colspan="2">224x224</th>
+    <th class="tg-baqh" colspan="2">320x320</th>
+    <th class="tg-baqh" colspan="2">320x320<br>( with mean-max pooling )</th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+    <td class="tg-baqh">Top 1</td>
+    <td class="tg-baqh">Top 5</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">DPN-68</td>
+    <td class="tg-baqh">49 MB</td>
+    <td class="tg-baqh">2.5</td>
+    <td class="tg-baqh">22.45</td>
+    <td class="tg-baqh">6.09</td>
+    <td class="tg-baqh">20.92</td>
+    <td class="tg-baqh">5.26</td>
+    <td class="tg-baqh">20.62</td>
+    <td class="tg-baqh">5.07</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">DPN-92</td>
+    <td class="tg-baqh">145 MB</td>
+    <td class="tg-baqh">6.5</td>
+    <td class="tg-baqh">19.98</td>
+    <td class="tg-baqh">5.06</td>
+    <td class="tg-baqh">19.00</td>
+    <td class="tg-baqh">4.37</td>
+    <td class="tg-baqh">18.79</td>
+    <td class="tg-baqh">4.19</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">DPN-107</td>
     <td class="tg-baqh">333 MB</td>
     <td class="tg-baqh">18.3</td>
     <td class="tg-baqh">19.75</td>
@@ -134,7 +181,7 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
 </table>
 </dl>
 
->\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k. (DPN-107 is not well trained.)
+>Note: DPN-107 is not well trained.
 
 
 ### ImageNet-5k
@@ -195,7 +242,7 @@ Based on our observations, Mean-Max Pooling consistently boost the testing accur
 </table>
 </dl>
 
->Note: The higher model complexity comes from the final classifier. Models trained on ImageNet-5k learn much richer feature representation than models trained ImageNet-1k.
+>Note: The higher model complexity comes from the final classifier. Models trained on ImageNet-5k learn much richer feature representation than models trained on ImageNet-1k.
 
 ### Efficiency (Training)
 
@@ -223,6 +270,7 @@ DPN-68   |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/5iCuZ8)
 DPN-68\* |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/GZetYA)
 DPN-68   |  61 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/FEbhPS)
 DPN-92   | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/U4ALbg)
+DPN-92\* | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/1sbov7)
 DPN-92   | 184 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/H9shRv)
 DPN-98   | 236 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/kjVsLG)
 DPN-131  | 304 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/VECv1H)
@@ -258,3 +306,4 @@ If you use DPN in your research, please cite the paper:
   year={2017}
 }
 ```
+
