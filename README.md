@@ -279,6 +279,16 @@ DPN-107\*| 333 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/YtokAb)
 >\*Pretrained on ImageNet-5k and then fine-tuned on ImageNet-1k.
 
 
+## Third-party Implementations
+
+- [Caffe Implementation](https://github.com/soeaver/caffe-model) **with trained models** by [soeaver](https://github.com/soeaver)
+- [Chainer Implementation](https://github.com/oyam/chainer-DPNs) by [oyam](https://github.com/oyam)
+- [Keras Implementation](https://github.com/titu1994/Keras-DualPathNetworks) by [titu1994](https://github.com/titu1994)
+- [MXNet Implementation](https://github.com/miraclewkf/DPN) by [miraclewkf](https://github.com/miraclewkf)
+- [PyTorch Implementation](https://github.com/oyam/pytorch-DPNs) by [oyam](https://github.com/oyam)
+- [PyTorch Implementation](https://github.com/rwightman/pytorch-dpn-pretrained) **with trained models** by [rwightman](https://github.com/rwightman)
+
+
 ## Other Resources
 
 ImageNet-1k Trainig/Validation List:
