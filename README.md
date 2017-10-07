@@ -1,10 +1,11 @@
 # Dual Path Networks
 This repository contains the code and trained models of:
 
-Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng. "Dual Path Networks" ([arxiv](https://arxiv.org/abs/1707.01629)).
-
+Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng. "Dual Path Networks" ([NIPS17](https://arxiv.org/abs/1707.01629)).
 
 ![example](fig/overview.png)
+
+- DPNs helped us won the **1st place** in Object Localization Task in [ILSVRC 2017](http://image-net.org/challenges/LSVRC/2017/index), with all competition tasks within Top 3. (Team: [NUS-Qihoo_DPNs](http://image-net.org/challenges/LSVRC/2017/results))
 
 ## Implementation
 
@@ -25,9 +26,9 @@ DPNs are implemented by [MXNet \@92053bd](https://github.com/cypw/mxnet/tree/920
 The augmented input images are substrated by mean RGB = [ 124, 117, 104 ], and then multiplied by 0.0167.
 
 ### Mean-Max Pooling
-Mean-Max pooling is a new technique for improving the accuracy of a trained CNN whose input size is larger than training crops. The idea is to first convert a trained CNN into a [convolutional network](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf) and then insert a mean-max pooling layer, i.e. `0.5 * (global average pooling + global max pooling)`, just before the final softmax layer, see [score.py](https://github.com/cypw/DPNs-tmp/blob/master/score.py#L49). Mean-Max Pooling is very effective and does not require any training/fine-tuining process. 
+Here, we introduce a new testing technique by using Mean-Max Pooling which can further improve the performance of a well trained CNN in the testing phase without the need of any training/fine-tuining process. This testing technique is designed for the case when the testing images is larger than training crops. The idea is to first convert a trained CNN model into a [convolutional network](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf) and then insert the following Mean-Max Pooling layer (a.k.a. [Max-Avg Pooling](https://arxiv.org/abs/1509.08985)), i.e. 0.5 * (global average pooling + global max pooling), just before the final softmax layer.
 
-Based on our observations, Mean-Max Pooling consistently boost the testing accuracy. We adopted this testing strategy in both LSVRC16 and LSVRC17. Please let me know if any other resarchers have proposed exactly the same technique.
+Based on our observations, Mean-Max Pooling consistently boost the testing accuracy. We adopted this testing strategy in both LSVRC16 and LSVRC17.
 
 
 ## Results
