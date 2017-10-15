@@ -271,6 +271,7 @@ DPN-68   |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/5iCuZ8)
 DPN-68\* |  49 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/GZetYA)
 DPN-68   |  61 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/FEbhPS)
 DPN-92   | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/U4ALbg)
+DPN-92   | 138 MB |Places365-Standard|[GoogleDrive](https://goo.gl/fRq1YM)
 DPN-92\* | 145 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/1sbov7)
 DPN-92   | 184 MB |ImageNet-5k|[GoogleDrive](https://goo.gl/H9shRv)
 DPN-98   | 236 MB |ImageNet-1k|[GoogleDrive](https://goo.gl/kjVsLG)
@@ -306,6 +307,8 @@ ImageNet-5k Trainig/Validation List:
 - It contains about 5k leaf categories from ImageNet10K. There is no category overlapping between our provided ImageNet-5k and the official ImageNet-1k.
 - Download link: [GoogleDrive](https://goo.gl/kNZC4j)
 
+Places365-Standard Validation List & Matlab code for 10 crops testing:
+- Download link: [GoogleDrive](https://goo.gl/jQkMpr)
 
 ## Citation
 If you use DPN in your research, please cite the paper:
