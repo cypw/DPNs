@@ -305,7 +305,7 @@ ImageNet-5k Raw Images:
 
 ImageNet-5k Trainig/Validation List:
 - It contains about 5k leaf categories from ImageNet10K. There is no category overlapping between our provided ImageNet-5k and the official ImageNet-1k.
-- ~~Download link: [GoogleDrive]~~(https://goo.gl/kNZC4j)
+- ~~Download link: [GoogleDrive: https://goo.gl/kNZC4j]~~
 - Download link: [GoogleDrive](https://goo.gl/XViHf3)
 - Mapping Table: [GoogleDrive](https://goo.gl/vWkHYV)
 
